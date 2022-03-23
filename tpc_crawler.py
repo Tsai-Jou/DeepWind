@@ -68,7 +68,10 @@ temp = dpa.account_reporter('gcpvm')
 db = pymysql.connect(temp[0], temp[1], temp[2], temp[3])
 cursor = db.cursor()
 # cloud SQL
-db_cloud = pymysql.connect("34.80.235.201", "root", "esfortest", "TPC")
+cloudIP = ""
+cloudUser = ""
+cloudPassword = ""
+db_cloud = pymysql.connect(cloudIP, cloudUser, cloudPassword, "TPC")
 cur_cloud = db_cloud.cursor()
 
 # sql: 如果資料表不存在，新增資料表
