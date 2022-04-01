@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>7-1 PI的關鍵詞文字雲</title>
+    <h3> 7-1 PI的關鍵詞文字雲：「陳彥宏」學者 2011~2020年關鍵詞文字雲</h3>
+     
+	<!--import amCharts-->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+<!--繁體中文設定-->
+<script src="https://cdn.amcharts.com/lib/5/fonts/notosans-tc.js"></script>    
+    <style>
+        #chartdiv {
+          width: 100%;
+          height: 650px;
+        }
+    </style>
+</head>
+
+<body>
+	<div id="chartdiv"></div>
+    
+    <!--function-->
+    <script>
+        am5.ready(function() {
+
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv");
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([
+        am5themes_Animated.new(root)
+        ]);
+        
+        // Add wrapper container
+        var container = root.container.children.push(am5.Container.new(root, {
+            width: am5.percent(100),
+            height: am5.percent(100),
+            layout: root.verticalLayout
+        }));
+
+
+        // Add series
+        // https://www.amcharts.com/docs/v5/charts/word-cloud/
+        var series = container.children.push(am5wc.WordCloud.new(root, {
+            categoryField: "tag",
+            valueField: "weight",
+            calculateAggregates: true // this is needed for heat rules to work
+        }));
+
+
+        // Set up heat rules
+        // https://www.amcharts.com/docs/v5/charts/word-cloud/#Via_heat_rules
+        series.set("heatRules", [{
+            target: series.labels.template,
+            dataField: "value",
+            min: am5.color(0xFFD4C2),
+            max: am5.color(0xFF621F),
+            key: "fill"
+        }]);
+
+        // Configure labels
+        //font-family: https://blog.ja-anything.com/2016/11/25/css-%E5%B8%B8%E7%94%A8%E4%B8%AD%E6%96%87%E5%AD%97%E5%9E%8B-traditional-chinese-font-family/
+        series.labels.template.setAll({
+            paddingTop: 5,
+            paddingBottom: 5,
+            paddingLeft: 5,
+            paddingRight: 5,
+            fontFamily: "serif",  
+            cursorOverStyle: "pointer"
+        });
+
+
+        // Data from:
+        // https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages
+        series.data.setAll([
+            {tag: "Unity", weight: 1},
+            {tag: "鈮酸鋰", weight: 5},
+            {tag: "近似演算法", weight: 4},
+            {tag: "NP完備", weight: 3},
+            {tag: "設備配置", weight: 3},
+            {tag: "基因演算法", weight: 3},
+            {tag: "定向耦合器", weight: 3},
+            {tag: "非線性光子晶體", weight: 2},
+            {tag: "非週期", weight: 2},
+            {tag: "負載平衡", weight: 2},
+            {tag: "准相位匹配", weight: 2},
+            {tag: "絕熱耦合器", weight: 2},
+            {tag: "p-中心點問題", weight: 2},
+            {tag: "瓶頸問題",weight: 2},
+            {tag: "非簡單暴力的正確演算法",weight: 2},
+            {tag: "節點涵蓋問題",weight: 1},
+            {tag: "converse連通p-中心點問題",weight: 1},
+            {tag: "無鏡式光參量振盪器",weight: 1},
+            {tag: "p-中心位點問題",weight: 1},
+            {tag: "電子迴旋共振化學氣相沉積",weight: 1},
+            {tag: "線性鬆弛法",weight: 1},
+            {tag: "程式解題歷程",weight: 1},
+            {tag: "脊型波導",weight: 1},
+            {tag: "姿勢變換",weight: 1},
+        ]);
+        
+        series.labels.template.set("tooltipText", "[bold]{category}[/]使用次數：[bold]{value}[/]次");
+
+        }); // end am5.ready()
+    </script>
+</body>
+
+</html>
+
+
+
+
