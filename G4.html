@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>4-2 學門研究技術網絡</title>
+    <h3>4-2 學門研究技術網絡：「資訊工程(資訊) & 微電子工程」學門重點關鍵詞</h3>
+     
+	<!--import amCharts-->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script> 
+    <style>
+        #chartdiv {
+          width: 100%;
+          height: 550px;
+          max-width:100%;
+        }
+    </style>
+</head>
+
+<body>
+	<div id="chartdiv"></div>
+    
+    <!--function-->
+    <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+        //chart.legend = new am4charts.Legend();
+        var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+
+        chart.data = [{    
+            name:'資訊工程(資訊)', 'value':40, 'neighbors':25, 'linkWidths':{
+                '物聯網':4.67,
+                '軟體定義網路':3.87,
+                '雲端運算':2.60,
+                '無線感測網路':1.93,
+                '服務品質':1.33,
+                '負載平衡':1.27,
+                '穿戴式裝置':1.00,
+                '巨量資料':1.00,
+                '雲端計算':0.93,
+                '連結網路':0.80,
+                '資訊安全':0.80,
+                '網路功能虛擬化':0.73,
+                '機器學習':0.73,
+                '隱私保護':0.73,
+                '行動裝置':0.60,
+                '演算法':0.60,
+                '容錯':0.60,
+                '車聯網':0.60,
+                '虛擬化':0.53,
+                '虛擬機器':0.53,
+                '資料探勘':0.53,
+                '智慧型手機':0.53,
+                'Android':0.53,
+                'OpenFlow':0.53,
+                '認證':0.47
+            },
+            'children':[
+                {'name':'物聯網', 'value':70, 'link':['微電子工程'], 'linkWidths':{'微電子工程':1.20}},
+                {'name':'軟體定義網路', 'value':58},
+                {'name':'雲端運算', 'value':39},
+                {'name':'無線感測網路', 'value':29},
+                {'name':'服務品質', 'value':20},
+                {'name':'負載平衡', 'value':19},
+                {'name':'穿戴式裝置', 'value':15},
+                {'name':'巨量資料', 'value':15},
+                {'name':'雲端計算', 'value':14},
+                {'name':'連結網路', 'value':12},
+                {'name':'資訊安全', 'value':12},
+                {'name':'網路功能虛擬化', 'value':11},
+                {'name':'機器學習', 'value':11, 'link':['微電子工程'], 'linkWidths':{'微電子工程':0.60}},
+                {'name':'隱私保護', 'value':11},
+                {'name':'行動裝置', 'value':9},
+                {'name':'演算法', 'value':9},
+                {'name':'容錯', 'value':9},
+                {'name':'車聯網', 'value':9},
+                {'name':'虛擬化', 'value':8},
+                {'name':'虛擬機器', 'value':8},
+                {'name':'資料探勘', 'value':8},
+                {'name':'智慧型手機', 'value':8},
+                {'name':'Android', 'value':8},
+                {'name':'OpenFlow', 'value':8},
+                {'name':'認證', 'value':7}
+            ]
+        },{
+            name:'微電子工程', 'value':40, 'neighbors':25, 'linkWidths':{
+                '氮化鎵':2.07,
+                '電阻式記憶體':1.93,
+                '物聯網':1.20,
+                '非揮發性記憶體':1.07,
+                '石墨烯':1.07,
+                '薄膜電晶體':1.07,
+                '二氧化鈦':0.93,
+                '鎖相迴路':0.93,
+                '低功耗':0.93,
+                '可靠度':0.93,
+                '三維晶片':0.87,
+                '類比數位轉換器':0.87,
+                '氧化鋅':0.80,
+                '低功率':0.73,
+                '矽穿孔':0.73,
+                '功率放大器':0.73,
+                '緩衝層':0.67,
+                '電晶體':0.67,
+                '氧化鋁':0.60,
+                '崩潰電壓':0.60,
+                '記憶體':0.60,
+                '蕭基位障':0.60,
+                '毫米波':0.60,
+                '機器學習':0.60,
+                '微機電':0.60,
+            },
+            'children':[
+                {'name':'氮化鎵', 'value':31},
+                {'name':'電阻式記憶體', 'value':29},
+                {'name':'非揮發性記憶體', 'value':16},
+                {'name':'石墨烯', 'value':16},
+                {'name':'薄膜電晶體', 'value':16},
+                {'name':'二氧化鈦', 'value':14},
+                {'name':'鎖相迴路', 'value':14},
+                {'name':'低功耗', 'value':14},
+                {'name':'可靠度', 'value':14},
+                {'name':'三維晶片', 'value':13},
+                {'name':'類比數位轉換器', 'value':13},
+                {'name':'氧化鋅', 'value':12},
+                {'name':'低功率', 'value':11},
+                {'name':'矽穿孔', 'value':11},
+                {'name':'功率放大器', 'value':11},
+                {'name':'緩衝層', 'value':10},
+                {'name':'電晶體', 'value':10},
+                {'name':'氧化鋁', 'value':9},
+                {'name':'崩潰電壓', 'value':9},
+                {'name':'記憶體', 'value':9},
+                {'name':'蕭基位障', 'value':9},
+                {'name':'毫米波', 'value':9},
+                {'name':'微機電', 'value':9}
+            ]
+        }];
+
+        // Set up data fields
+        networkSeries.dataFields.value = "value";
+        networkSeries.dataFields.name = "name";
+        networkSeries.dataFields.children = "children";
+        networkSeries.dataFields.id = "name";
+        networkSeries.dataFields.linkWith = "link";
+        networkSeries.dataFields.collapsed = "off";
+
+        networkSeries.minRadius = 26;
+        networkSeries.maxRadius = 50;
+        networkSeries.manyBodyStrength = -40;
+        networkSeries.dataFields.color = "color";
+        networkSeries.colors.list = [
+            am4core.color("#8888f1")
+        ];
+
+        networkSeries.nodes.template.fillOpacity = 0.85;
+        networkSeries.nodes.template.label.text = "{name}";
+        
+        networkSeries.nodes.template.label.adapter.add("fill", function(fill, target) {
+            return am4core.color("#000");
+        })
+        networkSeries.nodes.template.label.adapter.add("fontSize", function(fontSize, target) {
+            if (target.dataItem) {
+                switch(target.dataItem.level) {
+                case 0:
+                    return 18;
+                case 1:
+                    return 13;
+                }
+            }
+        });
+
+        networkSeries.nodes.template.circle.adapter.add("radius", function(radius, target) {
+            if (target.dataItem) {
+                switch(target.dataItem.level) {
+                case 0:
+                    return 40;
+                case 1:
+                    return 26;
+                }
+            }
+            return radius
+        });
+
+        //tooltip setting
+        networkSeries.tooltip.label.fill = am4core.color("#000");
+        networkSeries.tooltip.getFillFromObject = false;
+        networkSeries.tooltip.background.fill = am4core.color("#55a9f7");
+        networkSeries.tooltip.fontSize = 13;
+        networkSeries.nodes.template.adapter.add("tooltipText", function(text, target) {
+            if (target.dataItem.level == 0) {
+                return "「[bold]{name}[/]」與[bold]{neighbors}[/]個關鍵詞";
+            }
+            else if (target.dataItem.linkWith) {
+                var v = chart.data[1].linkWidths[target.dataItem.name]*15
+                return "[bold]< {name} >[/]\n與[bold]{parent.name}[/]合作：[bold]{value}[/] 次\n與[bold]{dataContext.link}[/]合作：[bold]" + v + "[/] 次";
+            }
+            else {
+                return "[bold]< {name} >[/]\n與[bold]{parent.name}[/]合作：[bold]{value}[/] 次";
+            }
+        });
+
+        //color setting
+        networkSeries.nodes.template.circle.adapter.add("fill", function(fill, target) {
+            if (target.dataItem.linkWith) {
+                return am4core.color("#F07769");
+            }
+        });
+        networkSeries.nodes.template.circle.adapter.add("stroke", function(fill, target) {
+            if (target.dataItem.linkWith) {
+                return am4core.color("#F07769");
+            }
+        });        
+        networkSeries.links.template.adapter.add("stroke", function(fill, target) {
+            if ((target.dataItem.linkWith) || (target.dataItem.name == chart.data[1].name)) {
+                return am4core.color("#F07769");
+            }
+            else {
+                return fill
+            }
+        });
+
+        networkSeries.links.template.strokeOpacity = 0.5;
+        //networkSeries.links.template.strokeWidth = 0.6;
+        networkSeries.links.template.distance = 2;
+        networkSeries.links.template.adapter.add("strokeWidth", function(width, target) {
+            let from = target.source;
+            let to = target.target;
+            let widths = from.dataItem.dataContext.linkWidths;
+            if (widths && widths[to.dataItem.id]) {
+                return widths[to.dataItem.id];
+            }
+                return width;
+        });
+
+        networkSeries.links.template.tooltipText = "[bold]{source.label.currentText}[/] X [bold]{name}[/]：合作 [bold]{value}[/] 次";
+        networkSeries.links.template.interactionsEnabled = true;
+
+        var hoverState = networkSeries.links.template.states.create("hover");
+        //hoverState.properties.strokeWidth = 3;
+        hoverState.properties.strokeOpacity = 1;
+        hoverState.properties.stroke = am4core.color("#E82E8E");
+
+        networkSeries.nodes.template.events.on("over", function(event) {
+            /*event.target.dataItem.childLinks.each(function(link) {
+                console.log(5,link.target.dataItem.id);
+                link.isHover = true;
+            })
+            if (event.target.dataItem.parentLink) {
+                event.target.dataItem.parentLink.isHover = true;
+            }*/
+            //console.log(event.target.dataItem.id)
+            var node = event.target
+            networkSeries.links.each(function(link) {
+                if (link.source.label.currentText == node.dataItem.id) {
+                    link.isHover = true;
+                }
+                else if (link.target.label.currentText == node.dataItem.id) {
+                    link.isHover = true;
+                }
+            })
+        })
+
+        networkSeries.nodes.template.events.on("out", function(event) {
+            var node = event.target
+            networkSeries.links.each(function(link) {
+                if (link.source.label.currentText == node.dataItem.id) {
+                    link.isHover = false;
+                }
+                else if (link.target.label.currentText == node.dataItem.id) {
+                    link.isHover = false;
+                }
+            })
+        })
+
+        //Friction and mobility
+        networkSeries.events.on("inited", function() {
+            networkSeries.animate({
+                property: "velocityDecay",
+                to: 0.85  
+            }, 3000);
+        });
+
+        }); // end am4core.ready()    
+</script>
+</body>
+
+</html>
+
+
+
+
