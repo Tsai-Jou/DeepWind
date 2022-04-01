@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>5-2 學門之間的合作網絡</title>
+    <h3>5-2 學門之間的合作網絡：2016年 不同PI間跨學門合作網絡</h3>
+     
+	<!--import amCharts-->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>   
+    <style>
+        #chartdiv {
+          width: 100%;
+          height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+	<div id="chartdiv"></div>
+    
+    <!--function-->
+    <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+        var chart = am4core.create("chartdiv", am4charts.ChordDiagram);
+        chart.hiddenState.properties.opacity = 0;
+
+        chart.data = [
+            {'from':'E01-機械固力', 'rank':0, 'count':3625},
+            {'from':'E02-化學工程', 'rank':9, 'count':2213},
+            {'from':'E06-材料工程', 'rank':3, 'count':3290},
+            {'from':'E09-土木、水利工程', 'rank':12, 'count':1095},
+            {'from':'E10-能源科技', 'rank':1, 'count':3540},
+            {'from':'E11-環境工程', 'rank':13, 'count':934},
+            {'from':'E12-電信工程', 'rank':7, 'count':2560},
+            {'from':'E14-微電子工程', 'rank':4, 'count':2984},
+            {'from':'E15-光電工程', 'rank':5, 'count':2901},
+            {'from':'E17-醫學工程', 'rank':8, 'count':2237},
+            {'from':'E18-電力工程', 'rank':11, 'count':1493},
+            {'from':'E20-高分子與纖維', 'rank':10, 'count':1697},
+            {'from':'E40-資訊工程(資訊)', 'rank':17, 'count':42},
+            {'from':'E41-智慧計算(資訊)', 'rank':18, 'count':27},
+            {'from':'E50-工業工程與管理', 'rank':14, 'count':922},
+            {'from':'E60-自動化技術', 'rank':2, 'count':3380},
+            {'from':'E61-控制工程', 'rank':6, 'count':2817},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'rank':15, 'count':900},
+            {'from':'E80-海洋及造船工程', 'rank':16, 'count':553},
+            {'from':'E01-機械固力', 'to':'E10-能源科技', 'value':479},
+            {'from':'E10-能源科技', 'to':'E01-機械固力', 'value':479},
+            {'from':'E10-能源科技', 'to':'E60-自動化技術', 'value':248},
+            {'from':'E60-自動化技術', 'to':'E10-能源科技', 'value':248},
+            {'from':'E10-能源科技', 'to':'E61-控制工程', 'value':130},
+            {'from':'E61-控制工程', 'to':'E10-能源科技', 'value':130},
+            {'from':'E60-自動化技術', 'to':'E80-海洋及造船工程', 'value':62},
+            {'from':'E80-海洋及造船工程', 'to':'E60-自動化技術', 'value':62},
+            {'from':'E60-自動化技術', 'to':'E61-控制工程', 'value':668},
+            {'from':'E61-控制工程', 'to':'E60-自動化技術', 'value':668},
+            {'from':'E18-電力工程', 'to':'E61-控制工程', 'value':583},
+            {'from':'E61-控制工程', 'to':'E18-電力工程', 'value':583},
+            {'from':'E12-電信工程', 'to':'E61-控制工程', 'value':357},
+            {'from':'E61-控制工程', 'to':'E12-電信工程', 'value':357},
+            {'from':'E06-材料工程', 'to':'E15-光電工程', 'value':471},
+            {'from':'E15-光電工程', 'to':'E06-材料工程', 'value':471},
+            {'from':'E02-化學工程', 'to':'E10-能源科技', 'value':357},
+            {'from':'E10-能源科技', 'to':'E02-化學工程', 'value':357},
+            {'from':'E02-化學工程', 'to':'E18-電力工程', 'value':21},
+            {'from':'E18-電力工程', 'to':'E02-化學工程', 'value':21},
+            {'from':'E12-電信工程', 'to':'E18-電力工程', 'value':77},
+            {'from':'E18-電力工程', 'to':'E12-電信工程', 'value':77},
+            {'from':'E09-土木、水利工程', 'to':'E18-電力工程', 'value':30},
+            {'from':'E18-電力工程', 'to':'E09-土木、水利工程', 'value':30},
+            {'from':'E01-機械固力', 'to':'E18-電力工程', 'value':43},
+            {'from':'E18-電力工程', 'to':'E01-機械固力', 'value':43},
+            {'from':'E15-光電工程', 'to':'E20-高分子與纖維', 'value':93},
+            {'from':'E20-高分子與纖維', 'to':'E15-光電工程', 'value':93},
+            {'from':'E02-化學工程', 'to':'E20-高分子與纖維', 'value':433},
+            {'from':'E20-高分子與纖維', 'to':'E02-化學工程', 'value':433},
+            {'from':'E11-環境工程', 'to':'E20-高分子與纖維', 'value':44},
+            {'from':'E20-高分子與纖維', 'to':'E11-環境工程', 'value':44},
+            {'from':'E10-能源科技', 'to':'E12-電信工程', 'value':93},
+            {'from':'E12-電信工程', 'to':'E10-能源科技', 'value':93},
+            {'from':'E01-機械固力', 'to':'E60-自動化技術', 'value':930},
+            {'from':'E60-自動化技術', 'to':'E01-機械固力', 'value':930},
+            {'from':'E17-醫學工程', 'to':'E61-控制工程', 'value':214},
+            {'from':'E61-控制工程', 'to':'E17-醫學工程', 'value':214},
+            {'from':'E14-微電子工程', 'to':'E17-醫學工程', 'value':244},
+            {'from':'E17-醫學工程', 'to':'E14-微電子工程', 'value':244},
+            {'from':'E02-化學工程', 'to':'E17-醫學工程', 'value':147},
+            {'from':'E17-醫學工程', 'to':'E02-化學工程', 'value':147},
+            {'from':'E01-機械固力', 'to':'E06-材料工程', 'value':399},
+            {'from':'E06-材料工程', 'to':'E01-機械固力', 'value':399},
+            {'from':'E06-材料工程', 'to':'E11-環境工程', 'value':40},
+            {'from':'E11-環境工程', 'to':'E06-材料工程', 'value':40},
+            {'from':'E02-化學工程', 'to':'E06-材料工程', 'value':506},
+            {'from':'E06-材料工程', 'to':'E02-化學工程', 'value':506},
+            {'from':'E06-材料工程', 'to':'E10-能源科技', 'value':688},
+            {'from':'E10-能源科技', 'to':'E06-材料工程', 'value':688},
+            {'from':'E12-電信工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':25},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E12-電信工程', 'value':25},
+            {'from':'E12-電信工程', 'to':'E15-光電工程', 'value':277},
+            {'from':'E15-光電工程', 'to':'E12-電信工程', 'value':277},
+            {'from':'E01-機械固力', 'to':'E50-工業工程與管理', 'value':104},
+            {'from':'E50-工業工程與管理', 'to':'E01-機械固力', 'value':104},
+            {'from':'E01-機械固力', 'to':'E11-環境工程', 'value':14},
+            {'from':'E11-環境工程', 'to':'E01-機械固力', 'value':14},
+            {'from':'E10-能源科技', 'to':'E17-醫學工程', 'value':155},
+            {'from':'E17-醫學工程', 'to':'E10-能源科技', 'value':155},
+            {'from':'E09-土木、水利工程', 'to':'E60-自動化技術', 'value':112},
+            {'from':'E60-自動化技術', 'to':'E09-土木、水利工程', 'value':112},
+            {'from':'E06-材料工程', 'to':'E09-土木、水利工程', 'value':27},
+            {'from':'E09-土木、水利工程', 'to':'E06-材料工程', 'value':27},
+            {'from':'E09-土木、水利工程', 'to':'E50-工業工程與管理', 'value':147},
+            {'from':'E50-工業工程與管理', 'to':'E09-土木、水利工程', 'value':147},
+            {'from':'E10-能源科技', 'to':'E20-高分子與纖維', 'value':145},
+            {'from':'E20-高分子與纖維', 'to':'E10-能源科技', 'value':145},
+            {'from':'E06-材料工程', 'to':'E20-高分子與纖維', 'value':237},
+            {'from':'E20-高分子與纖維', 'to':'E06-材料工程', 'value':237},
+            {'from':'E09-土木、水利工程', 'to':'E20-高分子與纖維', 'value':8},
+            {'from':'E20-高分子與纖維', 'to':'E09-土木、水利工程', 'value':8},
+            {'from':'E06-材料工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':84},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E06-材料工程', 'value':84},
+            {'from':'E12-電信工程', 'to':'E14-微電子工程', 'value':660},
+            {'from':'E14-微電子工程', 'to':'E12-電信工程', 'value':660},
+            {'from':'E12-電信工程', 'to':'E50-工業工程與管理', 'value':50},
+            {'from':'E50-工業工程與管理', 'to':'E12-電信工程', 'value':50},
+            {'from':'E12-電信工程', 'to':'E60-自動化技術', 'value':237},
+            {'from':'E60-自動化技術', 'to':'E12-電信工程', 'value':237},
+            {'from':'E10-能源科技', 'to':'E11-環境工程', 'value':235},
+            {'from':'E11-環境工程', 'to':'E10-能源科技', 'value':235},
+            {'from':'E10-能源科技', 'to':'E14-微電子工程', 'value':157},
+            {'from':'E14-微電子工程', 'to':'E10-能源科技', 'value':157},
+            {'from':'E10-能源科技', 'to':'E18-電力工程', 'value':189},
+            {'from':'E18-電力工程', 'to':'E10-能源科技', 'value':189},
+            {'from':'E10-能源科技', 'to':'E71-航太技術、熱傳學及流體力學', 'value':168},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E10-能源科技', 'value':168},
+            {'from':'E10-能源科技', 'to':'E80-海洋及造船工程', 'value':34},
+            {'from':'E80-海洋及造船工程', 'to':'E10-能源科技', 'value':34},
+            {'from':'E10-能源科技', 'to':'E15-光電工程', 'value':206},
+            {'from':'E15-光電工程', 'to':'E10-能源科技', 'value':206},
+            {'from':'E17-醫學工程', 'to':'E18-電力工程', 'value':48},
+            {'from':'E18-電力工程', 'to':'E17-醫學工程', 'value':48},
+            {'from':'E12-電信工程', 'to':'E17-醫學工程', 'value':336},
+            {'from':'E17-醫學工程', 'to':'E12-電信工程', 'value':336},
+            {'from':'E17-醫學工程', 'to':'E60-自動化技術', 'value':228},
+            {'from':'E60-自動化技術', 'to':'E17-醫學工程', 'value':228},
+            {'from':'E14-微電子工程', 'to':'E61-控制工程', 'value':121},
+            {'from':'E61-控制工程', 'to':'E14-微電子工程', 'value':121},
+            {'from':'E09-土木、水利工程', 'to':'E11-環境工程', 'value':96},
+            {'from':'E11-環境工程', 'to':'E09-土木、水利工程', 'value':96},
+            {'from':'E01-機械固力', 'to':'E80-海洋及造船工程', 'value':28},
+            {'from':'E80-海洋及造船工程', 'to':'E01-機械固力', 'value':28},
+            {'from':'E06-材料工程', 'to':'E14-微電子工程', 'value':319},
+            {'from':'E14-微電子工程', 'to':'E06-材料工程', 'value':319},
+            {'from':'E02-化學工程', 'to':'E11-環境工程', 'value':337},
+            {'from':'E11-環境工程', 'to':'E02-化學工程', 'value':337},
+            {'from':'E11-環境工程', 'to':'E17-醫學工程', 'value':41},
+            {'from':'E17-醫學工程', 'to':'E11-環境工程', 'value':41},
+            {'from':'E11-環境工程', 'to':'E80-海洋及造船工程', 'value':4},
+            {'from':'E80-海洋及造船工程', 'to':'E11-環境工程', 'value':4},
+            {'from':'E11-環境工程', 'to':'E61-控制工程', 'value':13},
+            {'from':'E61-控制工程', 'to':'E11-環境工程', 'value':13},
+            {'from':'E14-微電子工程', 'to':'E15-光電工程', 'value':753},
+            {'from':'E15-光電工程', 'to':'E14-微電子工程', 'value':753},
+            {'from':'E01-機械固力', 'to':'E02-化學工程', 'value':98},
+            {'from':'E02-化學工程', 'to':'E01-機械固力', 'value':98},
+            {'from':'E01-機械固力', 'to':'E20-高分子與纖維', 'value':263},
+            {'from':'E20-高分子與纖維', 'to':'E01-機械固力', 'value':263},
+            {'from':'E06-材料工程', 'to':'E12-電信工程', 'value':106},
+            {'from':'E12-電信工程', 'to':'E06-材料工程', 'value':106},
+            {'from':'E01-機械固力', 'to':'E17-醫學工程', 'value':219},
+            {'from':'E17-醫學工程', 'to':'E01-機械固力', 'value':219},
+            {'from':'E14-微電子工程', 'to':'E20-高分子與纖維', 'value':116},
+            {'from':'E20-高分子與纖維', 'to':'E14-微電子工程', 'value':116},
+            {'from':'E10-能源科技', 'to':'E50-工業工程與管理', 'value':103},
+            {'from':'E50-工業工程與管理', 'to':'E10-能源科技', 'value':103},
+            {'from':'E15-光電工程', 'to':'E18-電力工程', 'value':56},
+            {'from':'E18-電力工程', 'to':'E15-光電工程', 'value':56},
+            {'from':'E02-化學工程', 'to':'E14-微電子工程', 'value':33},
+            {'from':'E14-微電子工程', 'to':'E02-化學工程', 'value':33},
+            {'from':'E02-化學工程', 'to':'E15-光電工程', 'value':102},
+            {'from':'E15-光電工程', 'to':'E02-化學工程', 'value':102},
+            {'from':'E15-光電工程', 'to':'E60-自動化技術', 'value':246},
+            {'from':'E60-自動化技術', 'to':'E15-光電工程', 'value':246},
+            {'from':'E02-化學工程', 'to':'E50-工業工程與管理', 'value':40},
+            {'from':'E50-工業工程與管理', 'to':'E02-化學工程', 'value':40},
+            {'from':'E11-環境工程', 'to':'E50-工業工程與管理', 'value':29},
+            {'from':'E50-工業工程與管理', 'to':'E11-環境工程', 'value':29},
+            {'from':'E61-控制工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':147},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E61-控制工程', 'value':147},
+            {'from':'E09-土木、水利工程', 'to':'E80-海洋及造船工程', 'value':120},
+            {'from':'E80-海洋及造船工程', 'to':'E09-土木、水利工程', 'value':120},
+            {'from':'E14-微電子工程', 'to':'E60-自動化技術', 'value':163},
+            {'from':'E60-自動化技術', 'to':'E14-微電子工程', 'value':163},
+            {'from':'E09-土木、水利工程', 'to':'E17-醫學工程', 'value':52},
+            {'from':'E17-醫學工程', 'to':'E09-土木、水利工程', 'value':52},
+            {'from':'E15-光電工程', 'to':'E17-醫學工程', 'value':141},
+            {'from':'E17-醫學工程', 'to':'E15-光電工程', 'value':141},
+            {'from':'E61-控制工程', 'to':'E80-海洋及造船工程', 'value':39},
+            {'from':'E80-海洋及造船工程', 'to':'E61-控制工程', 'value':39},
+            {'from':'E02-化學工程', 'to':'E09-土木、水利工程', 'value':35},
+            {'from':'E09-土木、水利工程', 'to':'E02-化學工程', 'value':35},
+            {'from':'E09-土木、水利工程', 'to':'E12-電信工程', 'value':46},
+            {'from':'E12-電信工程', 'to':'E09-土木、水利工程', 'value':46},
+            {'from':'E06-材料工程', 'to':'E60-自動化技術', 'value':97},
+            {'from':'E60-自動化技術', 'to':'E06-材料工程', 'value':97},
+            {'from':'E01-機械固力', 'to':'E09-土木、水利工程', 'value':80},
+            {'from':'E09-土木、水利工程', 'to':'E01-機械固力', 'value':80},
+            {'from':'E01-機械固力', 'to':'E15-光電工程', 'value':298},
+            {'from':'E15-光電工程', 'to':'E01-機械固力', 'value':298},
+            {'from':'E01-機械固力', 'to':'E71-航太技術、熱傳學及流體力學', 'value':188},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E01-機械固力', 'value':188},
+            {'from':'E17-醫學工程', 'to':'E20-高分子與纖維', 'value':122},
+            {'from':'E20-高分子與纖維', 'to':'E17-醫學工程', 'value':122},
+            {'from':'E18-電力工程', 'to':'E60-自動化技術', 'value':121},
+            {'from':'E60-自動化技術', 'to':'E18-電力工程', 'value':121},
+            {'from':'E01-機械固力', 'to':'E61-控制工程', 'value':321},
+            {'from':'E61-控制工程', 'to':'E01-機械固力', 'value':321},
+            {'from':'E12-電信工程', 'to':'E20-高分子與纖維', 'value':30},
+            {'from':'E20-高分子與纖維', 'to':'E12-電信工程', 'value':30},
+            {'from':'E50-工業工程與管理', 'to':'E60-自動化技術', 'value':72},
+            {'from':'E60-自動化技術', 'to':'E50-工業工程與管理', 'value':72},
+            {'from':'E50-工業工程與管理', 'to':'E61-控制工程', 'value':43},
+            {'from':'E61-控制工程', 'to':'E50-工業工程與管理', 'value':43},
+            {'from':'E15-光電工程', 'to':'E61-控制工程', 'value':66},
+            {'from':'E61-控制工程', 'to':'E15-光電工程', 'value':66},
+            {'from':'E06-材料工程', 'to':'E17-醫學工程', 'value':202},
+            {'from':'E17-醫學工程', 'to':'E06-材料工程', 'value':202},
+            {'from':'E17-醫學工程', 'to':'E80-海洋及造船工程', 'value':18},
+            {'from':'E80-海洋及造船工程', 'to':'E17-醫學工程', 'value':18},
+            {'from':'E14-微電子工程', 'to':'E80-海洋及造船工程', 'value':45},
+            {'from':'E80-海洋及造船工程', 'to':'E14-微電子工程', 'value':45},
+            {'from':'E17-醫學工程', 'to':'E50-工業工程與管理', 'value':32},
+            {'from':'E50-工業工程與管理', 'to':'E17-醫學工程', 'value':32},
+            {'from':'E11-環境工程', 'to':'E14-微電子工程', 'value':11},
+            {'from':'E14-微電子工程', 'to':'E11-環境工程', 'value':11},
+            {'from':'E09-土木、水利工程', 'to':'E10-能源科技', 'value':149},
+            {'from':'E10-能源科技', 'to':'E09-土木、水利工程', 'value':149},
+            {'from':'E09-土木、水利工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':26},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E09-土木、水利工程', 'value':26},
+            {'from':'E01-機械固力', 'to':'E14-微電子工程', 'value':98},
+            {'from':'E14-微電子工程', 'to':'E01-機械固力', 'value':98},
+            {'from':'E01-機械固力', 'to':'E12-電信工程', 'value':62},
+            {'from':'E12-電信工程', 'to':'E01-機械固力', 'value':62},
+            {'from':'E20-高分子與纖維', 'to':'E60-自動化技術', 'value':90},
+            {'from':'E60-自動化技術', 'to':'E20-高分子與纖維', 'value':90},
+            {'from':'E11-環境工程', 'to':'E60-自動化技術', 'value':14},
+            {'from':'E60-自動化技術', 'to':'E11-環境工程', 'value':14},
+            {'from':'E60-自動化技術', 'to':'E71-航太技術、熱傳學及流體力學', 'value':51},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E60-自動化技術', 'value':51},
+            {'from':'E11-環境工程', 'to':'E12-電信工程', 'value':25},
+            {'from':'E12-電信工程', 'to':'E11-環境工程', 'value':25},
+            {'from':'E20-高分子與纖維', 'to':'E50-工業工程與管理', 'value':37},
+            {'from':'E50-工業工程與管理', 'to':'E20-高分子與纖維', 'value':37},
+            {'from':'E14-微電子工程', 'to':'E18-電力工程', 'value':167},
+            {'from':'E18-電力工程', 'to':'E14-微電子工程', 'value':167},
+            {'from':'E02-化學工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':46},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E02-化學工程', 'value':46},
+            {'from':'E11-環境工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':17},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E11-環境工程', 'value':17},
+            {'from':'E15-光電工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':33},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E15-光電工程', 'value':33},
+            {'from':'E17-醫學工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':33},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E17-醫學工程', 'value':33},
+            {'from':'E15-光電工程', 'to':'E50-工業工程與管理', 'value':84},
+            {'from':'E50-工業工程與管理', 'to':'E15-光電工程', 'value':84},
+            {'from':'E41-智慧計算(資訊)', 'to':'E71-航太技術、熱傳學及流體力學', 'value':1},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E41-智慧計算(資訊)', 'value':1},
+            {'from':'E06-材料工程', 'to':'E50-工業工程與管理', 'value':31},
+            {'from':'E50-工業工程與管理', 'to':'E06-材料工程', 'value':31},
+            {'from':'E12-電信工程', 'to':'E41-智慧計算(資訊)', 'value':16},
+            {'from':'E41-智慧計算(資訊)', 'to':'E12-電信工程', 'value':16},
+            {'from':'E18-電力工程', 'to':'E80-海洋及造船工程', 'value':16},
+            {'from':'E80-海洋及造船工程', 'to':'E18-電力工程', 'value':16},
+            {'from':'E06-材料工程', 'to':'E18-電力工程', 'value':47},
+            {'from':'E18-電力工程', 'to':'E06-材料工程', 'value':47},
+            {'from':'E20-高分子與纖維', 'to':'E61-控制工程', 'value':24},
+            {'from':'E61-控制工程', 'to':'E20-高分子與纖維', 'value':24},
+            {'from':'E20-高分子與纖維', 'to':'E80-海洋及造船工程', 'value':11},
+            {'from':'E80-海洋及造船工程', 'to':'E20-高分子與纖維', 'value':11},
+            {'from':'E11-環境工程', 'to':'E15-光電工程', 'value':6},
+            {'from':'E15-光電工程', 'to':'E11-環境工程', 'value':6},
+            {'from':'E50-工業工程與管理', 'to':'E71-航太技術、熱傳學及流體力學', 'value':21},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E50-工業工程與管理', 'value':21},
+            {'from':'E09-土木、水利工程', 'to':'E14-微電子工程', 'value':48},
+            {'from':'E14-微電子工程', 'to':'E09-土木、水利工程', 'value':48},
+            {'from':'E14-微電子工程', 'to':'E50-工業工程與管理', 'value':32},
+            {'from':'E50-工業工程與管理', 'to':'E14-微電子工程', 'value':32},
+            {'from':'E09-土木、水利工程', 'to':'E61-控制工程', 'value':53},
+            {'from':'E61-控制工程', 'to':'E09-土木、水利工程', 'value':53},
+            {'from':'E40-資訊工程(資訊)', 'to':'E60-自動化技術', 'value':1},
+            {'from':'E60-自動化技術', 'to':'E40-資訊工程(資訊)', 'value':1},
+            {'from':'E40-資訊工程(資訊)', 'to':'E61-控制工程', 'value':1},
+            {'from':'E61-控制工程', 'to':'E40-資訊工程(資訊)', 'value':1},
+            {'from':'E06-材料工程', 'to':'E40-資訊工程(資訊)', 'value':2},
+            {'from':'E40-資訊工程(資訊)', 'to':'E06-材料工程', 'value':2},
+            {'from':'E02-化學工程', 'to':'E60-自動化技術', 'value':40},
+            {'from':'E60-自動化技術', 'to':'E02-化學工程', 'value':40},
+            {'from':'E18-電力工程', 'to':'E50-工業工程與管理', 'value':79},
+            {'from':'E50-工業工程與管理', 'to':'E18-電力工程', 'value':79},
+            {'from':'E41-智慧計算(資訊)', 'to':'E61-控制工程', 'value':3},
+            {'from':'E61-控制工程', 'to':'E41-智慧計算(資訊)', 'value':3},
+            {'from':'E09-土木、水利工程', 'to':'E15-光電工程', 'value':65},
+            {'from':'E15-光電工程', 'to':'E09-土木、水利工程', 'value':65},
+            {'from':'E06-材料工程', 'to':'E61-控制工程', 'value':24},
+            {'from':'E61-控制工程', 'to':'E06-材料工程', 'value':24},
+            {'from':'E20-高分子與纖維', 'to':'E71-航太技術、熱傳學及流體力學', 'value':33},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E20-高分子與纖維', 'value':33},
+            {'from':'E02-化學工程', 'to':'E61-控制工程', 'value':10},
+            {'from':'E61-控制工程', 'to':'E02-化學工程', 'value':10},
+            {'from':'E12-電信工程', 'to':'E80-海洋及造船工程', 'value':148},
+            {'from':'E80-海洋及造船工程', 'to':'E12-電信工程', 'value':148},
+            {'from':'E02-化學工程', 'to':'E12-電信工程', 'value':4},
+            {'from':'E12-電信工程', 'to':'E02-化學工程', 'value':4},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E80-海洋及造船工程', 'value':9},
+            {'from':'E80-海洋及造船工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':9},
+            {'from':'E14-微電子工程', 'to':'E41-智慧計算(資訊)', 'value':1},
+            {'from':'E41-智慧計算(資訊)', 'to':'E14-微電子工程', 'value':1},
+            {'from':'E15-光電工程', 'to':'E41-智慧計算(資訊)', 'value':2},
+            {'from':'E41-智慧計算(資訊)', 'to':'E15-光電工程', 'value':2},
+            {'from':'E41-智慧計算(資訊)', 'to':'E50-工業工程與管理', 'value':2},
+            {'from':'E50-工業工程與管理', 'to':'E41-智慧計算(資訊)', 'value':2},
+            {'from':'E40-資訊工程(資訊)', 'to':'E50-工業工程與管理', 'value':13},
+            {'from':'E50-工業工程與管理', 'to':'E40-資訊工程(資訊)', 'value':13},
+            {'from':'E40-資訊工程(資訊)', 'to':'E71-航太技術、熱傳學及流體力學', 'value':1},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E40-資訊工程(資訊)', 'value':1},
+            {'from':'E12-電信工程', 'to':'E40-資訊工程(資訊)', 'value':11},
+            {'from':'E40-資訊工程(資訊)', 'to':'E12-電信工程', 'value':11},
+            {'from':'E10-能源科技', 'to':'E40-資訊工程(資訊)', 'value':4},
+            {'from':'E40-資訊工程(資訊)', 'to':'E10-能源科技', 'value':4},
+            {'from':'E11-環境工程', 'to':'E40-資訊工程(資訊)', 'value':4},
+            {'from':'E40-資訊工程(資訊)', 'to':'E11-環境工程', 'value':4},
+            {'from':'E17-醫學工程', 'to':'E40-資訊工程(資訊)', 'value':4},
+            {'from':'E40-資訊工程(資訊)', 'to':'E17-醫學工程', 'value':4},
+            {'from':'E18-電力工程', 'to':'E20-高分子與纖維', 'value':11},
+            {'from':'E20-高分子與纖維', 'to':'E18-電力工程', 'value':11},
+            {'from':'E09-土木、水利工程', 'to':'E41-智慧計算(資訊)', 'value':1},
+            {'from':'E41-智慧計算(資訊)', 'to':'E09-土木、水利工程', 'value':1},
+            {'from':'E14-微電子工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':16},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E14-微電子工程', 'value':16},
+            {'from':'E18-電力工程', 'to':'E71-航太技術、熱傳學及流體力學', 'value':1},
+            {'from':'E71-航太技術、熱傳學及流體力學', 'to':'E18-電力工程', 'value':1},
+            {'from':'E11-環境工程', 'to':'E18-電力工程', 'value':4},
+            {'from':'E18-電力工程', 'to':'E11-環境工程', 'value':4},
+            {'from':'E15-光電工程', 'to':'E80-海洋及造船工程', 'value':2},
+            {'from':'E80-海洋及造船工程', 'to':'E15-光電工程', 'value':2},
+            {'from':'E06-材料工程', 'to':'E80-海洋及造船工程', 'value':10},
+            {'from':'E80-海洋及造船工程', 'to':'E06-材料工程', 'value':10},
+            {'from':'E50-工業工程與管理', 'to':'E80-海洋及造船工程', 'value':3},
+            {'from':'E80-海洋及造船工程', 'to':'E50-工業工程與管理', 'value':3},
+            {'from':'E17-醫學工程', 'to':'E41-智慧計算(資訊)', 'value':1},
+            {'from':'E41-智慧計算(資訊)', 'to':'E17-醫學工程', 'value':1},
+            {'from':'E02-化學工程', 'to':'E80-海洋及造船工程', 'value':4},
+            {'from':'E80-海洋及造船工程', 'to':'E02-化學工程', 'value':4},
+            {'from':'E01-機械固力', 'to':'E40-資訊工程(資訊)', 'value':1},
+            {'from':'E40-資訊工程(資訊)', 'to':'E01-機械固力', 'value':1}       
+        ];
+        
+        //chart nodeColor
+        var colorList = {
+            0:"#017C80", 
+            1:"#3BA38D", 
+            2:"#75CA9A", 
+            3:"#BCEBD7"
+        };
+
+        for (var i = 0; i < 19; i++) {
+            var rank = chart.data[i].rank;
+            var n = Math.floor(rank/6);
+            chart.data[i].nodeColor = am4core.color(colorList[n]).lighten((rank%6)*0.06)
+            
+        };
+        //console.log(chart.data);
+
+
+        chart.dataFields.fromName = "from";
+        chart.dataFields.toName = "to";
+        chart.dataFields.value = "value";
+        chart.dataFields.color = "nodeColor";
+        chart.nonRibbon = true;
+        chart.startAngle = -100;
+        chart.endAngle = 260;
+
+        var nodeTemplate = chart.nodes.template;
+        nodeTemplate.fillOpacity = 0.7;
+        nodeTemplate.slice.disabled = true;
+        nodeTemplate.setStateOnChildren = true;
+        nodeTemplate.label.disabled = true;
+        nodeTemplate.togglable = false;
+        nodeTemplate.clickable = false;
+        nodeTemplate.draggable = false;
+
+        //游標移動到節點時產生的文字框
+        nodeTemplate.readerTitle = "跨學門合作次數：{count}";
+        nodeTemplate.showSystemTooltip = true;
+
+        //游標移動到節點時的顏色、透明度變化
+        var hoverState = nodeTemplate.states.create("hover");
+        //hoverState.properties.fill = "#BD4F6C";
+        hoverState.properties.fillOpacity = 0.85;
+
+        var linkTemplate = chart.links.template;
+        linkTemplate.opacity = 0.4;
+        linkTemplate.strokeWidth = 0.6;
+        linkTemplate.defaultState.properties.opacity = 0.1;
+        linkTemplate.tooltipText = "";
+        linkTemplate.readerTitle = "{from} x {to}：合作{value}次";
+        linkTemplate.showSystemTooltip = true;
+
+        var linkHoverState = linkTemplate.states.create("hover");
+        linkHoverState.properties.opacity = 1;
+        linkHoverState.properties.strokeWidth = 2.5;
+        linkHoverState.properties.fill = am4core.color("#134F5E");
+
+        nodeTemplate.events.on("over", function (event) {
+            var node = event.target;
+            node.outgoingDataItems.each(function (dataItem) {
+                dataItem.link.isHover = true;
+            })
+        })
+
+        nodeTemplate.events.on("out", function (event) {
+            var node = event.target;
+            node.outgoingDataItems.each(function (dataItem) {
+                dataItem.link.isHover = false;
+            })
+        })
+
+        nodeTemplate.cursorOverStyle = am4core.MouseCursorStyle.grab;
+
+        nodeTemplate.cursorDownStyle = am4core.MouseCursorStyle.grabbing;
+
+        var circleBullet = nodeTemplate.createChild(am4charts.CircleBullet);
+        circleBullet.setStateOnChildren = true;
+        circleBullet.circle.radius = 13;
+
+        var circleHoverState = circleBullet.states.create("hover");
+        circleHoverState.properties.scale = 1.5;
+
+        // we create a separate label as node.label ispositioned differently and doesn't fit perfectly for one-letter labels
+        var label = circleBullet.createChild(am4core.Label);
+        label.text = "{name}";
+        label.fontSize = 11;
+        label.fontWeight = "bold"
+        label.fill = am4core.color("black");
+        label.horizontalCenter = "middle";
+        label.verticalCenter = "middle";
+
+        var labelHoverState = label.states.create("hover");
+        labelHoverState.properties.fill = am4core.color("black");
+        
+        }); // end am5.ready()
+    </script>
+</body>
+
+</html>
+
+
+
+
