@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>6-1 PI關係網絡</title>
+    <h3>6-1 PI關係網絡：「鄧維光」學者關係網絡</h3>
+     
+	<!--import amCharts-->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script> 
+    <style>
+        #chartdiv {
+          width: 100%;
+          height: 550px;
+          max-width:100%;
+        }
+    </style>
+</head>
+
+<body>
+	<div id="chartdiv"></div>
+    
+    <!--function-->
+    <script>
+        am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+        //chart.legend = new am4charts.Legend();
+        var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+
+        chart.data = [{    
+            name:'鄧維光', 'value':40, 'neighbors':11, 'linkWidths':{
+                '胡誌麟':2.5,
+                '吳國光':2.5,
+                '黃俊龍':2.5,
+                '楊得年':2.5,
+                '陳正君':2.5,
+                '呂俊賢':2.5,
+                '溫志煜':2.5,
+                '侯廷偉':2.5,
+                '廖俊睿':2.5,
+                '黃仁暐':2.5,
+                '葉彌妍':2.5
+            },
+            'children':[{
+                'name':'溫志煜', 'value':2, 'neighbors':5,
+                'link':['黃俊龍', '葉彌妍', '楊得年', '吳國光'], 
+                'linkWidths': {
+                    '黃俊龍':0.8,
+                    '葉彌妍':0.8,
+                    '楊得年':0.8,
+                    '吳國光':0.8
+                }
+            },{
+                'name':'陳正君', 'value':2, 'neighbors':3,
+                'link':['呂俊賢', '楊得年'], 
+                'linkWidths': {
+                    '呂俊賢':0.8,
+                    '楊得年':0.8
+                }
+            },{
+                'name':'胡誌麟', 'value':3, 'neighbors':3,
+                'link':['吳國光', '黃俊龍'], 
+                'linkWidths': {
+                    '吳國光':0.8,
+                    '黃俊龍':0.8
+                }
+            },{
+                'name':'黃俊龍', 'value':3, 'neighbors':5,
+                'link':['溫志煜', '胡誌麟', '葉彌妍', '黃仁暐'], 
+                'linkWidths': {
+                    '溫志煜':0.8,
+                    '胡誌麟':0.8,
+                    '葉彌妍':0.8,
+                    '黃仁暐':0.8
+                }
+            },{
+                'name':'葉彌妍', 'value':1, 'neighbors':4,
+                'link':['楊得年', '溫志煜', '黃俊龍'], 
+                'linkWidths': {
+                    '楊得年':0.8,
+                    '溫志煜':0.8,
+                    '黃俊龍':0.8
+                }
+            },{
+                'name':'廖俊睿', 'value':2, 'neighbors':2,
+                'link':['黃仁暐'], 
+                'linkWidths': {
+                    '黃仁暐':0.8
+                }
+            },{
+                'name':'吳國光', 'value':3, 'neighbors':3,
+                'link':['胡誌麟', '溫志煜'], 
+                'linkWidths': {
+                    '胡誌麟':0.8,
+                    '溫志煜':0.8
+                }
+            },{
+                'name':'楊得年', 'value':2, 'neighbors':5,
+                'link':['呂俊賢', '葉彌妍', '陳正君', '溫志煜'], 
+                'linkWidths': {
+                    '呂俊賢':0.8,
+                    '葉彌妍':0.8,
+                    '陳正君':0.8,
+                    '溫志煜':0.8
+                }
+            },{
+                'name':'黃仁暐', 'value':2, 'neighbors':3,
+                'link':['廖俊睿', '黃俊龍'], 
+                'linkWidths': {
+                    '廖俊睿':0.8,
+                    '黃俊龍':0.8
+                }
+            },{
+                'name':'侯廷偉', 'value':2, 'neighbors':1
+            },{
+                'name':'呂俊賢', 'value':2, 'neighbors':3,
+                'link':['陳正君', '楊得年'], 
+                'linkWidths': {
+                    '陳正君':0.8,
+                    '楊得年':0.8
+                }
+            }]            
+        }];
+
+        // Set up data fields
+        networkSeries.dataFields.value = "value";
+        networkSeries.dataFields.name = "name";
+        networkSeries.dataFields.children = "children";
+        networkSeries.dataFields.id = "name";
+        networkSeries.dataFields.linkWith = "link";
+
+        networkSeries.minRadius = 22;
+        networkSeries.maxRadius = 35;
+        networkSeries.manyBodyStrength = -45;
+        networkSeries.dataFields.color = "color";
+        networkSeries.colors.list = [
+            am4core.color("#55a9f7")
+        ];
+
+        networkSeries.nodes.template.fillOpacity = 0.85;
+        
+        networkSeries.nodes.template.label.text = "{name}";        
+        networkSeries.nodes.template.label.adapter.add("fill", function(fill, target) {
+            return am4core.color("#000");
+        })
+        networkSeries.nodes.template.label.adapter.add("fontSize", function(fontSize, target) {
+            if (target.dataItem) {
+                switch(target.dataItem.level) {
+                case 0:
+                    return 18;
+                case 1:
+                    return 13;
+                }
+            }
+        });
+
+        //tooltip setting
+        networkSeries.tooltip.label.fill = am4core.color("#000");
+        networkSeries.tooltip.getFillFromObject = false;
+        networkSeries.tooltip.background.fill = am4core.color("#bdb5ff");
+        networkSeries.tooltip.fontSize = 13;
+        networkSeries.nodes.template.adapter.add("tooltipText", function(text, target) {
+            if (target.dataItem) {
+                switch(target.dataItem.level) {
+                case 0:
+                    return "「[bold]{name}[/]」與[bold]"+chart.data[0].children.length+"[/]位學者";
+                case 1:
+                    return "[bold]< {name} >[/]\n與[bold]{parent.name}[/]合作：[bold]{value}[/] 次\n相連學者：[bold]{neighbors}[/] 位";
+                }
+            }
+            return text;
+        });
+
+        //color setting
+        networkSeries.nodes.template.adapter.add("radius", function(radius, target) {
+            if (target.dataItem.level != 0) {
+                return target.dataItem.value;
+            }
+        });
+        networkSeries.nodes.template.circle.adapter.add("fill", function(fill, target) {
+            return am4core.color("#55a9f7");
+        });
+        networkSeries.nodes.template.circle.adapter.add("stroke", function(fill, target) {
+            if (target.dataItem.level > 0) {
+                return am4core.color("#55a9f7");
+            }
+        });        networkSeries.links.template.adapter.add("stroke", function(fill, target) {
+            return am4core.color("#55a9f7");
+        });
+
+        networkSeries.links.template.strokeOpacity = 0.5;
+        networkSeries.links.template.strokeWidth = 0.6;
+        networkSeries.links.template.distance = 3;
+        networkSeries.links.template.adapter.add("strokeWidth", function(width, target) {
+            let from = target.source;
+            let to = target.target;
+            let widths = from.dataItem.dataContext.linkWidths;
+            if (widths && widths[to.dataItem.id]) {
+                return widths[to.dataItem.id];
+            }
+                return width;
+        });
+
+        networkSeries.links.template.tooltipText = "[bold]{source.label.currentText}[/] x [bold]{name}[/]：合作 [bold]{value}[/] 次";
+        networkSeries.links.template.interactionsEnabled = true;
+
+        var hoverState = networkSeries.links.template.states.create("hover");
+        //hoverState.properties.strokeWidth = 3;
+        hoverState.properties.strokeOpacity = 1;
+        hoverState.properties.stroke = am4core.color("#1732A1");
+
+        networkSeries.nodes.template.events.on("over", function(event) {
+            /*event.target.dataItem.childLinks.each(function(link) {
+                console.log(5,link.target.dataItem.id);
+                link.isHover = true;
+            })
+            if (event.target.dataItem.parentLink) {
+                event.target.dataItem.parentLink.isHover = true;
+            }*/
+            //console.log(event.target.dataItem.id)
+            var node = event.target
+            networkSeries.links.each(function(link) {
+                if (link.source.label.currentText == node.dataItem.id) {
+                    link.isHover = true;
+                }
+                else if (link.target.label.currentText == node.dataItem.id) {
+                    link.isHover = true;
+                }
+            })
+        })
+
+        networkSeries.nodes.template.events.on("out", function(event) {
+            var node = event.target
+            networkSeries.links.each(function(link) {
+                if (link.source.label.currentText == node.dataItem.id) {
+                    link.isHover = false;
+                }
+                else if (link.target.label.currentText == node.dataItem.id) {
+                    link.isHover = false;
+                }
+            })
+        })
+
+        //Friction and mobility
+        networkSeries.events.on("inited", function() {
+            networkSeries.animate({
+                property: "velocityDecay",
+                to: 0.85  
+            }, 3000);
+        });
+
+        }); // end am4core.ready()    
+</script>
+</body>
+
+</html>
+
+
+
+
